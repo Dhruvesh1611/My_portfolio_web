@@ -17,6 +17,7 @@ function Contents() {
                     <div key={feed.id} className="video">
                         <img src={feed.img_url} alt={feed.title} className="Video-thumb" />
                         <div className='Channel'>
+                            
                             <div>
                                 <img src={feed.channel} alt="Channel logo" />
                             </div>
@@ -32,4 +33,7 @@ function Contents() {
     );
 }
 
-export default Contents;
+console.log("Contents component loaded");
+export default function Contents() {
+  return <div>Contents Component</div>;
+}

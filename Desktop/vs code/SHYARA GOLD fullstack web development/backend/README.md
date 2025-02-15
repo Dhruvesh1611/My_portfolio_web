@@ -1,1 +1,0 @@
-# shayara_gold
