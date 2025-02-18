@@ -1,73 +1,55 @@
-## Portfolio Website  
-This is my personal portfolio built with React and Framer Motion.
+# **Portfolio Website**  
+
+This is my **personal portfolio website** showcasing my projects, resume, and technical skills. Built using **React.js** and **Framer Motion**, the portfolio features smooth animations, a modern UI, and a fully responsive design.  
 
 <div align="center">
-  <img alt="Demo" src="./Images/readme-img1.png" />
+  <img alt="Portfolio Preview" src="./Images/readme-img1.png" />
 </div>
 
-<br/>
+---
 
-<center>
+## 🚀 **Live Demo**  
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) &nbsp;
-[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) &nbsp;
-![GitHub Repo stars](https://img.shields.io/github/stars/Dhruvesh1611/Portfolio?color=red&logo=github&style=for-the-badge) &nbsp;
-![GitHub forks](https://img.shields.io/github/forks/Dhruvesh1611/Portfolio?color=red&logo=github&style=for-the-badge)
+🔗 [dhruveshshyara.tech](https://dhruveshshyara.tech) _(Coming Soon)_  
 
-</center>
+---
 
-<h3 align="center">
-    🔹
-    <a href="https://github.com/Dhruvesh1611/Portfolio/issues">Report Bug</a> &nbsp; &nbsp;
-    🔹
-    <a href="https://github.com/Dhruvesh1611/Portfolio/issues">Request Feature</a>
-</h3>
+## 📌 **About the Project**  
 
-## TL;DR
+This portfolio serves as a **digital resume** that highlights:  
 
-You can fork this repo to modify and make changes of your own. Please give proper credit by linking back to [Dhruvesh1611](https://github.com/Dhruvesh1611/Portfolio). Thanks!
+✅ My **projects** with live links and GitHub repositories  
+✅ My **technical skills** and tools I use  
+✅ A **Download Resume** feature  
+✅ **Framer Motion animations** for a smooth user experience  
+✅ **Dark/Light Mode Toggle**  
+✅ **Contact form** to get in touch easily  
 
-## Built With
+---
 
-My personal portfolio [dhruveshshyara.tech](https://dhruveshshyara.tech) (upcoming) which features some of my GitHub projects, my resume, and my technical skills.<br/>
+## 🛠 **Tech Stack & Tools**  
 
-This project was built using these technologies:
+- **Frontend:** React.js, Framer Motion, CSS3  
+- **UI/UX Design:** Glassmorphism, Neumorphism, Minimal UI  
+- **Tools:** VS Code, GitHub, Netlify/Vercel  
 
-- React.js
-- Framer Motion
-- CSS3
-- VS Code
-- Vercel
+---
 
-## Features
+## 🎨 **Features & Highlights**  
 
-**📖 Multi-Page Layout**  
-**🎨 Styled with CSS with easy-to-customize colors**  
-**📱 Fully Responsive**  
-**✨ Smooth Animations with Framer Motion**  
-**🌑 Dark/Light Mode Toggle**  
+✔ **Modern & Minimal UI** – A clean, well-structured interface  
+✔ **Animations & Interactions** – Smooth transitions using **Framer Motion**  
+✔ **Mobile Responsive** – Optimized for all screen sizes  
+✔ **Customizable Theme** – **Dark/Light Mode Toggle**  
+✔ **Fast Performance** – Lightweight and optimized for speed  
 
-## Getting Started
+---
 
-Clone this repository. You will need `node.js` and `git` installed globally on your machine.
+## 📂 **Project Structure**  
 
-## 🛠 Installation and Setup Instructions
+📁 **`/src/components/`** → Reusable React components (Navbar, Hero, Skills, Projects, etc.)  
+📁 **`/src/assets/`** → Images, icons, and other static assets  
+📁 **`/src/styles/`** → Global styles, animations, and theme settings  
+📁 **`/src/pages/`** → Separate page components for different sections  
 
-1. Installation: `npm install`
-2. In the project directory, run: `npm start`
-
-Runs the app in development mode.  
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.  
-The page will reload if you make edits.
-
-## Usage Instructions
-
-Open the project folder and navigate to `/src/components/`.  
-You will find all the components used, and you can edit your information accordingly.
-
-### Show your support
-
-Give a ⭐ if you like this website!
-
-<a href="https://www.buymeacoffee.com/dhruveshshyara" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height= "60px" width= "217px" ></a>
+---
