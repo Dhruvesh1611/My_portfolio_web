@@ -25,6 +25,11 @@ function App() {
       upadateLoad(false);
     }, 1200);
 
+    console.log(
+      "%c🚀 Built by Dhruvesh Shyara so don't buch maring→ https://github.com/Dhruvesh1611",
+      "color: yellow; font-size: 16px; font-weight: bold;"
+    );
+
     return () => clearTimeout(timer);
   }, []);
 
