@@ -25,7 +25,7 @@ function About() {
               Know Who <strong className="purple">I'M</strong>
             </h1>
             <Aboutcard
-              name="Dhruvesh Valjibhai Shyara"
+              name="Dhruvesh Shyara"
               description={`Aspiring Full-Stack Developer with a strong foundation in the MERN stack and a passion for building scalable web applications.
               Currently pursuing a B.Tech in Computer Science at Rai University. Focused on enhancing my skills in both frontend and backend development.
               Eager to work on innovative projects and contribute to dynamic development teams.`}
