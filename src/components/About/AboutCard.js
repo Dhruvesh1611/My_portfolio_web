@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
+import { FaGraduationCap } from "react-icons/fa";
 
 function AboutCard() {
   return (
@@ -11,7 +12,13 @@ function AboutCard() {
             Hi Everyone, I am <span className="purple">Dhruvesh Shyara </span>
             from <span className="purple"> Gujarat, India.</span>
             <br />
-            I am currently pursuing a B.Tech in Computer Science at Rai University.
+            <br />
+            <FaGraduationCap className="purple" /> <strong>Education:</strong>
+            <br />
+            • B.Tech in Computer Science - Rai University - CodingGita
+            <br />
+            • Full Stack Development 
+            <br />
             <br />
             I am passionate about full-stack development and always eager to learn new technologies.
             <br />
@@ -20,7 +27,7 @@ function AboutCard() {
           </p>
           <ul>
             <li className="about-activity">
-              <ImPointRight /> Playing Cricket
+              <ImPointRight /> Playing Cricket/badminton
             </li>
             <li className="about-activity">
               <ImPointRight /> Stock Market Learning

@@ -5,6 +5,7 @@ function Particle() {
   return (
     <Particles
       id="tsparticles"
+      style={{ position: "absolute", zIndex: "-1" }}  // This will move the particles behind everything else
       params={{
         particles: {
           number: {
@@ -51,5 +52,6 @@ function Particle() {
     />
   );
 }
+
 
 export default Particle;

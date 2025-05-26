@@ -1,21 +1,41 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import { Card, Button } from "react-bootstrap";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 
-function ProjectCards({ title, description, ghLink, demoLink, isBlog, imgPath }) {
+function ProjectCard(props) {
   return (
     <Card className="project-card-view">
-      <Card.Img variant="top" src={imgPath} alt="card-img" />
+      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>{description}</Card.Text>
-        <Button variant="primary" href={ghLink} target="_blank">
-          <BsGithub /> &nbsp; {isBlog ? "Blog" : "GitHub"}
+        <Card.Title style={{ fontWeight: "bold" }}>{props.title}</Card.Title>
+        <Card.Text style={{ textAlign: "justify" }}>
+          <div className="technologies">
+            {props.technologies.map((tech, index) => (
+              <span
+                key={index}
+                style={{
+                  backgroundColor: "#c770f0",
+                  color: "white",
+                  padding: "4px 8px",
+                  borderRadius: "4px",
+                  margin: "2px",
+                  display: "inline-block",
+                  fontSize: "0.9em"
+                }}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </Card.Text>
+        {"\n"}
+        {"\n"}
+        <Button variant="primary" href={props.ghLink} target="_blank">
+          <BsGithub /> &nbsp; {props.isBlog ? "Blog" : "GitHub"}
         </Button>
-        {!isBlog && demoLink && (
-          <Button variant="primary" href={demoLink} target="_blank" style={{ marginLeft: "10px" }}>
+        {!props.isBlog && props.demoLink && (
+          <Button variant="primary" href={props.demoLink} target="_blank" style={{ marginLeft: "10px" }}>
             <CgWebsite /> &nbsp; Demo
           </Button>
         )}
@@ -24,7 +44,7 @@ function ProjectCards({ title, description, ghLink, demoLink, isBlog, imgPath })
   );
 }
 
-export default ProjectCards;
+export default ProjectCard;
 
 // Usage Example with Dhruvesh's Projects
 const projects = [
@@ -53,7 +73,7 @@ export function ProjectList() {
   return (
     <div>
       {projects.map((project, index) => (
-        <ProjectCards key={index} {...project} />
+        <ProjectCard key={index} {...project} />
       ))}
     </div>
   );

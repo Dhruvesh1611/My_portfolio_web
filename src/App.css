@@ -46,6 +46,10 @@ iframe {
 }
 
 .img-fluid1{
-  
   width: 70%;
+}
+
+.filter-buttons {
+  position: relative;
+  z-index: 10; /* Ensures the buttons are above the particles */
 }
