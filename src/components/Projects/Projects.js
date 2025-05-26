@@ -12,7 +12,7 @@ import gameImg from "../../Assets/Projects/game.png";
 function Projects() {
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const projects = [
+  const projects = useMemo(() => [
     {
       imgPath: shyaraGoldImg,
       isBlog: false,
@@ -58,7 +58,7 @@ function Projects() {
       demoLink: "https://snake-game-demo.netlify.app/",
       category: ["game", "javascript"]
     }
-  ];
+  ], []); // Empty dependency array since these values are static
 
   // Get unique categories from all projects
   const categories = useMemo(() => {
