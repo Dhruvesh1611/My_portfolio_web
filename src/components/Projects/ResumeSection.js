@@ -63,7 +63,6 @@ function ResumeSection() {
               className="resume-box" 
               onClick={() => handleResumeClick(resume)}
               style={{
-                backgroundColor: "#1d1d1d",
                 borderRadius: "10px",
                 padding: "15px",
                 cursor: "pointer",
@@ -89,7 +88,6 @@ function ResumeSection() {
                 }}
               />
               <h3 style={{ 
-                color: "white", 
                 marginBottom: "8px",
                 fontSize: "1rem",
                 textAlign: "center"
@@ -97,7 +95,6 @@ function ResumeSection() {
                 {resume.title}
               </h3>
               <p style={{ 
-                color: "#b8b8b8", 
                 textAlign: "center", 
                 marginBottom: "10px",
                 fontSize: "0.8rem"
@@ -162,3 +159,4 @@ function ResumeSection() {
 }
 
 export default ResumeSection;
+ 

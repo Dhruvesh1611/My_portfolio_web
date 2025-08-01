@@ -1,3 +1,48 @@
+:root[data-theme="light"] {
+  --section-background-color: linear-gradient(to bottom, rgba(140,191,211,1) 0%, rgba(140,191,211,0.7) 20%, #c58ede 80%, rgb(207, 148, 234) 100%);
+  --image-gradient: linear-gradient(to bottom, rgba(140,191,211,1) 0%, rgba(140,191,211,0.7) 20%, #c58ede 80%, rgb(207, 148, 234) 100%);
+  --imp-text-color: #007BA7; /* Dark Sky Blue */
+  --background-color: #87CEEB; /* Sky Blue */
+  --card-background: #ffffff;
+  --text-color: #000000;
+  --navbar-background: rgba(255, 255, 255, 0.9);
+  --border-color: #007BA7;
+  --hover-color: #00567A;
+  --modal-background: #ffffff;
+  --modal-text: #333333;
+  --resume-border: #007BA7;
+  --resume-dot: #007BA7;
+  --resume-title-bg: rgba(0, 123, 167, 0.1);
+  --tech-icon-bg-light: #1A2B3C; /* Very Dark Blue for box background */
+  --tech-icon-border-light: #1A2B3C; /* Matching dark border */
+  --tech-icon-shadow-light: rgba(26, 43, 60, 0.5); /* Darker shadow */
+}
+
+:root[data-theme="dark"] {
+  --section-background-color: linear-gradient(
+    to bottom left,
+    rgba(0, 0, 0, 0.95),
+    rgba(10, 10, 10, 1)
+  );
+  --image-gradient: linear-gradient(
+    to bottom left,
+    rgba(0, 0, 0, 0.98),
+    rgba(10, 10, 10, 1)
+  );
+  --imp-text-color: #c770f0;
+  --background-color: #000000;
+  --card-background: #000000;
+  --text-color: #ffffff;
+  --navbar-background: rgba(0, 0, 0, 0.95);
+  --border-color: #c770f0;
+  --hover-color: #934cce;
+  --modal-background: #000000;
+  --modal-text: #ffffff;
+  --resume-border: #8a49a8;
+  --resume-dot: #8a49a8;
+  --resume-title-bg: #000000;
+}
+
 html {
   --section-background-color: linear-gradient(
     to bottom left,
@@ -257,7 +302,7 @@ button:focus {
 .home-section {
   position: relative;
   z-index: -1;
-  background-image: var(--image-gradient), url(./Assets/home-bg.jpg);
+  background-image: var(--image-gradient);
   background-position: top center;
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
@@ -266,7 +311,7 @@ button:focus {
 
 .home-content {
   padding: 9rem 0 2rem !important;
-  color: whitesmoke;
+  color: white;
   text-align: left;
 }
 
@@ -334,6 +379,7 @@ button:focus {
   padding-top: 50px;
   font-size: 1.2em !important;
   text-align: left;
+  color: white !important;
 }
 
 .home-about-social {
@@ -402,18 +448,21 @@ button:focus {
 /* Footer */
 /* --------- */
 .footer {
-  background-color: rgb(10, 4, 22);
+  background-color: rgb(10, 4, 22) !important;
   bottom: 0 !important;
   padding-top: 10px !important;
   padding-bottom: 8px !important ;
+  color: white !important;
 }
 .footer-copywright {
   text-align: center !important;
+  color: white !important;
 }
 
 .footer-body {
   z-index: 1;
   text-align: center !important;
+  color: white !important;
 }
 
 @media (max-width: 767px) {
@@ -439,7 +488,7 @@ button:focus {
 }
 
 .blockquote-footer {
-  color: #a588c0 !important;
+  color: white !important;
 }
 /* --------- */
 /* Projects */
@@ -456,21 +505,26 @@ button:focus {
   padding-bottom: 50px !important;
   padding-left: 25px !important;
   padding-right: 25px !important;
-  height: auto !important;
+  height: 100% !important;
 }
 
 .project-card-view {
-  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
-  color: white !important;
-  background-color: transparent !important;
-  opacity: 0.9 !important;
+  background-color: var(--card-background) !important;
+  border: 1px solid var(--border-color) !important;
+  opacity: 1 !important;
   transition: all 0.5s ease 0s !important;
   height: 100% !important;
+  min-height: 450px; /* Ensure a consistent minimum height for all cards */
+  display: flex; /* Make the card itself a flex container */
+  flex-direction: column; /* Stack image and body vertically */
 }
+
+[data-theme="light"] .project-card-view {
+  color: white !important; /* Ensure text is white on dark project cards in light mode */
+}
+
 .project-card-view:hover {
-  transform: scale(1.02) !important;
-  overflow: hidden !important;
-  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
+  box-shadow: 0 4px 4px 5px var(--hover-color) !important;
 }
 
 .blog-card {
@@ -484,13 +538,13 @@ button:focus {
 .blog-card-view {
   background-color: transparent !important;
   box-shadow: 0 3px 3px 2px rgba(145, 77, 161, 0.459) !important;
-  color: white !important;
+  color: var(--text-color) !important;
   transition: all 0.5s ease 0s !important;
   height: 100% !important;
 }
 
 .blog-link {
-  color: white !important;
+  color: var(--text-color) !important;
   text-decoration: none !important;
 }
 
@@ -508,6 +562,9 @@ button:focus {
   padding: 20px !important;
   opacity: 0.8 !important;
   border-radius: 10px !important;
+  height: 200px; /* Set a fixed height for project images */
+  object-fit: cover; /* Ensure images cover the area */
+  max-height: 200px; /* Ensure images don't exceed this height */
 }
 
 .blog-img {
@@ -518,21 +575,55 @@ button:focus {
 
 .btn-primary {
   color: #fff !important;
-  background-color: #623686 !important;
-  border-color: #623686 !important;
+  background-color: var(--imp-text-color) !important;
+  border-color: var(--imp-text-color) !important;
+  border-radius: 5px !important;
+  padding: 8px 16px !important;
+  font-size: 0.9em !important;
+  transition: all 0.3s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin: 5px !important;
+  min-width: 120px !important;
 }
 
 .btn-primary:hover {
-  color: #fff !important;
-  background-color: #6d20c5d7 !important;
-  border-color: #6d20c5d7 !important;
+  background-color: var(--hover-color) !important;
+  border-color: var(--hover-color) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
+
 .btn:focus {
   outline: none !important;
   box-shadow: none !important;
 }
+
+/* Add styles for button icons */
+.btn-primary svg {
+  font-size: 1.2em !important;
+  margin-right: 4px !important;
+}
+
+/* Add styles for button container */
+.project-card-view .card-body {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.project-card-view .card-body .btn-container {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  margin-top: 15px !important;
+  flex-wrap: wrap !important;
+}
+
 .project-heading {
-  color: white !important;
+  color: var(--text-color) !important;
   font-size: 2.3em !important;
   font-weight: 500 !important;
   padding-top: 10px !important;
@@ -547,7 +638,7 @@ button:focus {
   padding-top: 150px !important;
   padding-bottom: 30px !important;
   background-image: var(--section-background-color) !important;
-  color: white !important;
+  color: var(--text-color) !important;
 }
 
 .tech-icons {
@@ -555,27 +646,38 @@ button:focus {
   margin: 15px !important;
   padding: 10px !important;
   opacity: 0.93 !important;
-  border: 1.7px solid rgba(200, 137, 230, 0.637) !important;
   vertical-align: middle !important;
   text-align: center !important;
   border-radius: 5px !important;
   display: table !important;
-  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
   overflow: hidden !important;
   transition: all 0.4s ease 0s !important;
 }
 
-@media (max-width: 767px) {
-  .tech-icons {
-    margin: 10px !important;
-  }
+/* Apply theme-specific styles for tech icons */
+[data-theme="light"] .tech-icons {
+  color: var(--text-color) !important; /* Icons black in light mode */
+  background: white !important; /* White box background */
+  border: 1.7px solid rgba(0, 0, 0, 0.2) !important; /* Subtle dark border */
+  box-shadow: 4px 5px 4px 3px rgba(0, 0, 0, 0.1) !important; /* Subtle dark shadow */
 }
 
-.tech-icons:hover {
-  transform: scale(1.05) !important;
-  overflow: hidden !important;
+[data-theme="dark"] .tech-icons {
+  color: white !important; /* Keep icons white in dark mode for contrast */
+  border: 1.7px solid rgba(200, 137, 230, 0.637) !important;
+  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
+  background: transparent !important; /* Ensure transparent background in dark mode */
+}
+
+[data-theme="light"] .tech-icons:hover {
+  border: 2.2px solid var(--hover-color) !important;
+  background: rgba(135, 206, 250, 0.5) !important; /* Slightly more prominent hover, keeping a light blue hover */
+}
+
+[data-theme="dark"] .tech-icons:hover {
   border: 2.2px solid rgba(197, 115, 230, 0.883) !important;
 }
+
 .tech-icon-images {
   padding: 20px !important;
   line-height: 1.6 !important;
@@ -583,7 +685,7 @@ button:focus {
 
 .quote-card-view {
   border: none !important;
-  color: white !important;
+  color: var(--text-color) !important;
   background-color: transparent !important;
 }
 
@@ -607,7 +709,8 @@ button:focus {
   padding-top: 110px !important;
   padding-bottom: 30px !important;
   background-image: var(--section-background-color) !important;
-  color: white !important;
+  color: var(--text-color) !important;
+  overflow-x: hidden;
 }
 
 .resume {
@@ -645,18 +748,19 @@ button:focus {
 .resume .resume-item {
   padding: 0 0 10px 25px;
   margin-top: -2px;
-  border-left: 2px solid #8a49a8;
+  border-left: 2px solid var(--resume-border) !important;
   position: relative;
 }
 
 .resume .resume-item .resume-title {
   line-height: 18px;
   font-size: 0.9em;
-  background: #5234795d;
+  background: var(--resume-title-bg) !important;
   padding: 8px 15px;
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
+  color: var(--text-color) !important;
 }
 
 .resume .resume-item ul {
@@ -681,8 +785,8 @@ button:focus {
   border-radius: 50px;
   left: -9px;
   top: 0;
-  background: #fff;
-  border: 2px solid #8a49a8;
+  background: var(--text-color);
+  border: 2px solid var(--resume-dot) !important;
 }
 
 .like-item {
@@ -740,4 +844,196 @@ button:focus {
 }
 .fork-btn-inner::after {
   display: none !important;
+}
+
+body {
+  background-color: var(--background-color);
+  background-image: var(--image-gradient);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Keep navbar and footer consistent */
+.navbar {
+  background-color: #1b1a2ea9 !important;
+}
+
+.sticky {
+  background-color: #1b1a2ea9 !important;
+}
+
+.footer {
+  background-color: rgb(10, 4, 22) !important;
+}
+
+/* Theme-specific styles */
+.project-card-view {
+  background-color: var(--card-background) !important;
+  border: 1px solid var(--border-color) !important;
+  opacity: 1 !important;
+  transition: all 0.5s ease 0s !important;
+  height: 100% !important;
+}
+
+[data-theme="light"] .project-card-view {
+  color: white !important; /* Ensure text is white on dark project cards in light mode */
+}
+
+.project-card-view:hover {
+  box-shadow: 0 4px 4px 5px var(--hover-color) !important;
+}
+
+.btn-primary {
+  background-color: var(--imp-text-color) !important;
+  border-color: var(--imp-text-color) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-color) !important;
+  border-color: var(--hover-color) !important;
+}
+
+/* Certificate and Resume Styles */
+.certificate-section,
+.resume-section {
+  background-image: var(--section-background-color) !important;
+  color: var(--text-color) !important;
+}
+
+.certificate-card-view,
+.resume-box {
+  background-color: var(--card-background) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Ensure resume text is black in light mode specifically */
+[data-theme="light"] .resume-box *,
+[data-theme="light"] .resume-card * {
+  color: var(--text-color) !important;
+}
+
+/* Specific override for resume name in light mode */
+[data-theme="light"] .resume-box h3 {
+  color: var(--text-color) !important;
+}
+
+.certificate-card-view:hover,
+.resume-box:hover {
+  box-shadow: 0 4px 8px var(--hover-color) !important;
+}
+
+.modal-content {
+  background-color: var(--modal-background) !important;
+  color: var(--modal-text) !important;
+}
+
+.modal-header,
+.modal-footer {
+  background-color: var(--modal-background) !important;
+  border-color: var(--border-color) !important;
+}
+
+.modal-body {
+  background-color: var(--modal-background) !important;
+}
+
+.resume .resume-item {
+  border-left: 2px solid var(--resume-border) !important;
+}
+
+.resume .resume-item .resume-title {
+  background: var(--resume-title-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.resume .resume-item::before {
+  background: var(--text-color);
+  border: 2px solid var(--resume-dot) !important;
+}
+
+/* Resume Section Styles */
+.resume-section {
+  background-image: var(--section-background-color) !important;
+  color: var(--text-color) !important;
+}
+
+.resume .resume-item {
+  border-left: 2px solid var(--resume-border) !important;
+}
+
+.resume .resume-item .resume-title {
+  background: var(--resume-title-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.resume .resume-item::before {
+  background: var(--text-color);
+  border: 2px solid var(--resume-dot) !important;
+}
+
+.resume-box {
+  background-color: var(--card-background) !important;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: none !important;
+}
+
+.resume-box:hover {
+  box-shadow: 0 4px 8px var(--hover-color) !important;
+}
+
+/* Remove any default borders from resume cards */
+.resume-card {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.resume-card .resume-box {
+  border: 1px solid var(--border-color) !important;
+  box-shadow: none !important;
+}
+
+.resume-card .resume-box:hover {
+  box-shadow: 0 4px 8px var(--hover-color) !important;
+}
+
+/* Ensure no extra borders in light mode */
+[data-theme="light"] .resume-box {
+  border: 1px solid var(--border-color) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="light"] .resume-card {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Prevent horizontal overflow and scaling in resume section */
+.resume-section {
+  overflow-x: hidden;
+}
+
+.resume-box img {
+  max-width: 100%; /* Ensure images don't overflow their containers */
+  height: auto;
+}
+
+.resume-box p {
+  word-wrap: break-word; /* Ensure long words break and wrap */
+  overflow-wrap: break-word;
+}
+
+.home-gradient-bg {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #8cbfd3 0%, #c770f0 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.home-section,
+.home-about-section {
+  background: transparent !important;
 }

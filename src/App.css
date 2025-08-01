@@ -1,12 +1,15 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
   height: 40vmin;
+  
   pointer-events: none;
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -22,7 +25,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text-color);
 }
 
 .App-link {
@@ -38,18 +41,96 @@
   }
 }
 
-
-
 iframe {
   pointer-events: auto !important;
   z-index: 1;
 }
 
-.img-fluid1{
+.img-fluid1 {
   width: 70%;
 }
 
 .filter-buttons {
   position: relative;
-  z-index: 10; /* Ensures the buttons are above the particles */
+  z-index: 10;
 }
+
+.filter-buttons .btn,
+.filter-buttons .btn-outline-primary {
+  border-color: #fff !important;
+  color: #fff !important;
+}
+/* Certificate section styles */
+.certificate-section {
+  flex: 1;
+  padding-bottom: 50px;
+}
+
+.certificate-card-view {
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.certificate-card-view:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer styles */
+.footer {
+  margin-top: auto;
+  padding: 20px 0;
+  background-color: #1d1d1d;
+  position: relative;
+  z-index: 1;
+}
+
+/* === Visitor Modal Styles (Light & Dark Mode) === */
+
+/* Default (light mode) */
+.visitor-modal,
+.visitor-names-modal .modal-content {
+  background-color: white;
+  color: black;
+}
+
+.visitor-names-modal .modal-header,
+.visitor-names-modal .modal-body {
+  background-color: white;
+  color: black;
+}
+
+.visitor-name {
+  color: #c770f0;
+}
+
+.visitor-date {
+  color: #666;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .visitor-modal,
+  .visitor-names-modal .modal-content {
+    background-color: #1d1d1d;
+    color: white;
+  }
+
+  .visitor-names-modal .modal-header,
+  .visitor-names-modal .modal-body {
+    background-color: #1d1d1d;
+    color: white;
+  }
+
+  .visitor-date {
+    color: #888;
+  }
+}
+
+.project-card-view .card-title {
+  color: #fff !important;
+}
+
+[data-theme="light"] .project-card-view .card-title {
+  color: #000 !important;
+}
+

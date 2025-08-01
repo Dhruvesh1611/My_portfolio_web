@@ -61,7 +61,7 @@ function ResumeGallery() {
   };
 
   return (
-    <Container className="resume-section">
+    <div className="resume-section">
       <h2 className="project-heading">
         My <strong className="purple">Resumes</strong>
       </h2>
@@ -167,7 +167,7 @@ function ResumeGallery() {
           )}
         </Modal.Body>
       </Modal>
-    </Container>
+    </div>
   );
 }
 

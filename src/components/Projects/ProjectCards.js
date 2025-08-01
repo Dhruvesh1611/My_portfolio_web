@@ -4,12 +4,14 @@ import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 
 function ProjectCard(props) {
+  // Check if this is a UI/UX project
+  const isUIUX = props.technologies && props.technologies.some(tech => tech.toLowerCase().includes('ui/ux'));
   return (
     <Card className="project-card-view">
       <Card.Img variant="top" src={props.imgPath} alt="card-img" />
-      <Card.Body>
+      <Card.Body style={{ display: 'flex', flexDirection: 'column' }}>
         <Card.Title style={{ fontWeight: "bold" }}>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
+        <Card.Text style={{ textAlign: "justify", flexGrow: 1 }}>
           <div className="technologies">
             {props.technologies.map((tech, index) => (
               <span
@@ -29,16 +31,27 @@ function ProjectCard(props) {
             ))}
           </div>
         </Card.Text>
-        {"\n"}
-        {"\n"}
-        <Button variant="primary" href={props.ghLink} target="_blank">
-          <BsGithub /> &nbsp; {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
-        {!props.isBlog && props.demoLink && (
-          <Button variant="primary" href={props.demoLink} target="_blank" style={{ marginLeft: "10px" }}>
-            <CgWebsite /> &nbsp; Demo
-          </Button>
-        )}
+        <div className="btn-container">
+          {/* Only show Demo button for UI/UX projects, otherwise show both */}
+          {isUIUX ? (
+            !props.isBlog && props.demoLink && (
+              <Button variant="primary" href={props.demoLink} target="_blank">
+                <CgWebsite /> Demo
+              </Button>
+            )
+          ) : (
+            <>
+              <Button variant="primary" href={props.ghLink} target="_blank">
+                <BsGithub /> GitHub
+              </Button>
+              {!props.isBlog && props.demoLink && (
+                <Button variant="primary" href={props.demoLink} target="_blank">
+                  <CgWebsite /> Demo
+                </Button>
+              )}
+            </>
+          )}
+        </div>
       </Card.Body>
     </Card>
   );

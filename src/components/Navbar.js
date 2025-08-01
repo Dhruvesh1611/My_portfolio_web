@@ -11,12 +11,16 @@ import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
+  AiOutlineBulb,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
+import { FaCertificate } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const { isDarkTheme, toggleTheme } = useTheme();
 
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -88,6 +92,16 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/certificates"
+                onClick={() => updateExpanded(false)}
+              >
+                <FaCertificate style={{ marginBottom: "2px" }} /> Certificates
+              </Nav.Link>
+            </Nav.Item>
+
             <Nav.Item className="fork-btn">
               <Button
                 href="https://github.com/Dhruvesh1611/My_portfolio_web"
@@ -96,6 +110,21 @@ function NavBar() {
               >
                 <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
                 <AiFillStar style={{ fontSize: "1.1em" }} />
+              </Button>
+            </Nav.Item>
+
+            <Nav.Item className="d-flex align-items-center">
+              <Button
+                onClick={toggleTheme}
+                style={{
+                  backgroundColor: "transparent",
+                  border: "none",
+                  color: "white",
+                  padding: "8px 15px",
+                  marginLeft: "10px"
+                }}
+              >
+                <AiOutlineBulb style={{ marginBottom: "2px" }} /> {isDarkTheme ? "Light" : "Dark"}
               </Button>
             </Nav.Item>
           </Nav>

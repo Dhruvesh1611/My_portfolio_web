@@ -17,10 +17,10 @@ function Projects() {
       imgPath: shyaraGoldImg,
       isBlog: false,
       title: "Shyara Gold",
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Redux", "JWT", "Bootstrap"],
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Redux"],
       ghLink: "https://github.com/codinggita/shyara_gold",
       demoLink: "https://shyara-gold.netlify.app/",
-      category: ["mern", "react", "api"]
+      category: ["mern", "react","api"]
     },
     {
       imgPath: eatClubImg,
@@ -28,8 +28,8 @@ function Projects() {
       title: "EatClub Clone",
       technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
       ghLink: "https://github.com/Dhruvesh1611/website1-Eat-club-",
-      demoLink: "https://eatclub-clone.netlify.app/",
-      category: ["htmlcss", "react"]
+      demoLink: "https://eatclubclonecg.netlify.app/",
+      category: ["htmlcss"]
     },
     {
       imgPath: rollsRoyceImg,
@@ -37,7 +37,7 @@ function Projects() {
       title: "Rolls-Royce Clone",
       technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
       ghLink: "https://github.com/Dhruvesh1611/website2-rolls-royce-",
-      demoLink: "https://rollsroyce-clone.netlify.app/",
+      demoLink: "https://rollsroyceclonecg.netlify.app/",
       category: ["htmlcss"]
     },
     {
@@ -46,7 +46,7 @@ function Projects() {
       title: "Libas Clone",
       technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
       ghLink: "https://github.com/Dhruvesh1611/website3-libas-",
-      demoLink: "https://libasclone.netlify.app/",
+      demoLink: "https://libas-web.netlify.app/",
       category: ["htmlcss"]
     },
     {
@@ -56,7 +56,16 @@ function Projects() {
       technologies: ["JavaScript", "HTML5 Canvas", "CSS3", "Game Development"],
       ghLink: "https://github.com/Dhruvesh1611/snake-game",
       demoLink: "https://snake-game-demo.netlify.app/",
-      category: ["game", "javascript"]
+      category: ["game"]
+    },
+    {
+      imgPath: require("../../Assets/Projects/docscanx.png"), // Add your image to Assets/Projects and update the filename if needed
+      isBlog: false,
+      title: "DocScanX",
+      technologies: ["UI/UX Design"],
+      ghLink: "https://www.figma.com/design/nLO9RK2WTMH5gae7dKFh1A/Untitled?node-id=0-1&t=tLzv08ikjf1RfFbU-1",
+      demoLink: "https://www.figma.com/design/nLO9RK2WTMH5gae7dKFh1A/Untitled?node-id=0-1&t=tLzv08ikjf1RfFbU-1",
+      category: ["uiux"]
     }
   ], []); // Empty dependency array since these values are static
 
@@ -68,6 +77,9 @@ function Projects() {
     });
     return Array.from(uniqueCategories);
   }, [projects]);
+
+  // Remove 'react' from categories for filter buttons
+  const filteredCategories = categories.filter(category => category !== 'react');
 
   const filteredProjects = activeFilter === "all" 
     ? projects 
@@ -127,13 +139,13 @@ function Projects() {
           >
             All Projects
           </Button>
-          {categories.map((category) => (
-            <Button
+          {filteredCategories.map((category) => (
+          <Button
               key={category}
               variant={getButtonVariant(category)}
               onClick={() => setActiveFilter(category)}
-              className="mx-2 mb-2"
-              type="button"
+            className="mx-2 mb-2"
+            type="button"
               style={{
                 backgroundColor: activeFilter === category ? "#c770f0" : "transparent",
                 borderColor: "#c770f0",
@@ -142,12 +154,12 @@ function Projects() {
               }}
             >
               {getCategoryDisplayName(category)}
-            </Button>
+          </Button>
           ))}
         </div>
 
         {/* Project Cards */}
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+        <Row style={{ justifyContent: "center", paddingBottom: "10px" }} className="d-flex align-items-stretch">
           {filteredProjects.length > 0 ? (
             filteredProjects.map((project, index) => (
               <Col md={4} className="project-card" key={index}>
