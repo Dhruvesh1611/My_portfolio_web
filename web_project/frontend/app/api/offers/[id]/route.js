@@ -2,6 +2,10 @@ import { NextResponse } from 'next/server';
 import dbConnect from '../../../../lib/dbConnect';
 import OfferContent from '../../../../models/OfferContent';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';
+
 export async function PUT(request, { params }) {
   const { id } = params;
   await dbConnect();
@@ -27,9 +31,15 @@ export async function PUT(request, { params }) {
       return NextResponse.json({ success: false, error: 'Offer not found' }, { status: 404 });
     }
 
-    return NextResponse.json({ success: true, data: updatedOffer });
+    return NextResponse.json(
+      { success: true, data: updatedOffer },
+      { headers: { 'cache-control': 'no-store' } }
+    );
   } catch (error) {
     console.error('API Error:', error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 400 });
+    return NextResponse.json(
+      { success: false, error: error.message },
+      { status: 400, headers: { 'cache-control': 'no-store' } }
+    );
   }
 }

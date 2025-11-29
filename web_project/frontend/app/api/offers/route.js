@@ -2,6 +2,11 @@ import { NextResponse } from 'next/server';
 import dbConnect from '../../../lib/dbConnect';
 import OfferContent from '../../../models/OfferContent';
 
+// Ensure Vercel never caches this route; always hit DB
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';
+
 // We'll keep a fixed set of 5 positions (0..4). Each document may have an optional `position` field.
 // GET: return array of length 5, filling missing positions with defaults.
 export async function GET() {
@@ -11,10 +16,28 @@ export async function GET() {
     // Previously this endpoint returned a fixed 5-length array; returning the
     // actual documents makes store-based filtering on the client reliable.
     const docs = await OfferContent.find({}).sort({ position: 1, createdAt: 1 }).lean();
-    return NextResponse.json({ success: true, data: docs }, { status: 200 });
+    return NextResponse.json(
+      { success: true, data: docs },
+      {
+        status: 200,
+        headers: {
+          'cache-control': 'no-store, no-cache, must-revalidate, private',
+          'pragma': 'no-cache',
+          'x-vercel-cache-control': 'no-store',
+        },
+      }
+    );
   } catch (error) {
     console.error('Error fetching offers from DB', error);
-    return NextResponse.json({ success: false, error: 'Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: 'Server Error' },
+      {
+        status: 500,
+        headers: {
+          'cache-control': 'no-store, no-cache, must-revalidate, private',
+        },
+      }
+    );
   }
 }
 
